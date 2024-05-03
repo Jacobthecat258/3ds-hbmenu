@@ -1,9 +1,10 @@
 #include "common.h"
 
-static menu_s s_menu[2];
+menu_s s_menu[2];
 static menu_s s_menuFileAssoc[2];
 
-static bool s_curMenu, s_curMenuFileAssoc;
+bool s_curMenu;
+static bool s_curMenuFileAssoc;
 
 menu_s* menuGetCurrent(void)
 {

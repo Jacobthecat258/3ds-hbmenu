@@ -9,6 +9,8 @@
 
 #include <zlib.h>
 
+#include "../menu-list.h"
+
 #define ZLIB_CHUNK (16 * 1024)
 
 static int listenfd = -1;
@@ -331,7 +333,7 @@ void netloaderTask(void* arg)
 
 	static menuEntry_s me;
 	menuEntryInit(&me, ENTRY_TYPE_FILE);
-	strncpy(me.path, "sdmc:/3ds/", sizeof(me.path)-1);
+	strncpy(me.path, s_menu[!s_curMenu].dirname, sizeof(me.path)-1);
 	strncat(me.path, recvbuf, sizeof(me.path)-1);
 	me.path[sizeof(me.path)-1] = 0;
 
